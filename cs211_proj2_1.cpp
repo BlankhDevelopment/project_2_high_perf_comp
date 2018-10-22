@@ -1,7 +1,7 @@
 #include <stdio.h>                                                                             
 
 #include "cblas.h"                                                                             
-
+#include <iostream>
 #include "lapacke.h"                                                                           
 
 #include <string.h>                                                                            
