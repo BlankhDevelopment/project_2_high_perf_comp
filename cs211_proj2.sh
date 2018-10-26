@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --job-name=proj2
 #SBATCH --output=res.txt
