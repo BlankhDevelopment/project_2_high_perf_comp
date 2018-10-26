@@ -17,20 +17,19 @@ int main (int argc, const char * argv[]) {
                                                                                                
 
   int m = 2;                                                                                   
-
   int n = 2;                                                                                   
-
   int lda = 2;                                                                                 
-
   int ldb = 2;                                                                                 
 
                                                                                                
 
-  double * A = new double[m*n];                                                                
+  double *A; 
+  double *B;
+  int *ipiv;
 
-  double * B = new double[m];                                                                  
-
-  int * ipiv = new int[m];                                                                     
+  A = (double*)malloc(m*n * sizeof(double));
+  B = (double*)malloc(m * sizeof(double));
+  ipiv = (double*)malloc(m * sizeof(int));                                                                     
 
                                                                                                                                                                                                                                                                                                                                                                                            
 
