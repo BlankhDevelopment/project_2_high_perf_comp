@@ -36,7 +36,7 @@ int main (int argc, const char * argv[]) {
                                                                                                                                                                                                                                                                                        
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  LAPACKE_dtrsm( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );                                    
+  LAPACKE_dtrsm( L, U, N, U, m, n, ALPHA, A, lda, ipiv );                                    
 
                                                                                                
 
