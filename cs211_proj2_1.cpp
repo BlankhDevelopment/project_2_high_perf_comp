@@ -17,7 +17,7 @@ int main (int argc, const char * argv[]) {
   int m = 3; //# of rows                                                                                  
   int n = 3; //# of columns                                                                                   
   int lda = 3; //length of first dimenssion                                                                                 
-  int ldb = 2;                                                                                 
+  int ldb = 3;                                                                                 
                                                                                                
 
   double *A; 
@@ -38,10 +38,10 @@ int main (int argc, const char * argv[]) {
   char *L = 'l';
   char *U = 'u';
   char *N = 'n';
-                                                                                                                                                                                                                                                                                       
+  double ALPHA = 0;                                                                                                                                                                                                                                                                                    
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
+  cblas_dtrsm( L, U, N, U, m, n, ALPHA, A, lda, B, ldb);                                    
 
                                                                                                
 
@@ -54,7 +54,7 @@ int main (int argc, const char * argv[]) {
    
    cout << endl << endl;
 
-   cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
+    cblas_dtrsm( L, U, N, U, m, n, ALPHA, A, lda, B, ldb);       
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -65,7 +65,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-    cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
+    cblas_dtrsm( L, U, N, U, m, n, ALPHA, A, lda, B, ldb);       
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
