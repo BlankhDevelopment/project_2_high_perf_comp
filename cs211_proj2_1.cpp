@@ -13,9 +13,9 @@ int main (int argc, const char * argv[]) {
 
                                                                                                
 
-  int m = 3;                                                                                   
-  int n = 3;                                                                                   
-  int lda = 3;                                                                                 
+  int m = 3; //# of rows                                                                                  
+  int n = 3; //# of columns                                                                                   
+  int lda = 3; //length of first dimenssion                                                                                 
   int ldb = 2;                                                                                 
                                                                                                
 
@@ -32,7 +32,7 @@ int main (int argc, const char * argv[]) {
   A[0] = 4; A[1] = 6;  A[4] =  7;        B[0] = 2;                                                               
 
   A[2] = 3; A[3] = 3;  A[5] = 4;         B[1] = 10;                                                              
-
+  A[6] = 6; A[7] = 4;  A[8] = 6;
                                                                                                                                                                                                                                                                                          
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );                                      
