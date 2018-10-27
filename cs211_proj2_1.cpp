@@ -42,7 +42,7 @@ int main (int argc, const char * argv[]) {
   double ALPHA = 0;                                                                                                                                                                                                                                                                                    
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  cblas_dtrsm( 0, SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);                                    
+  cblas_dtrsm( LAPACK_COL_MAJOR, SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);                                    
 
                                                                                                
 
@@ -55,7 +55,7 @@ int main (int argc, const char * argv[]) {
    
    cout << endl << endl;
   
-    cblas_dtrsm( SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);  
+    cblas_dtrsm(LAPACK_COL_MAJOR, SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);  
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -66,7 +66,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-     cblas_dtrsm( SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);      
+     cblas_dtrsm(LAPACK_COL_MAJOR, SIDE, UPLO, TRANSA, DIAG, m, n, ALPHA, A, lda, B, ldb);      
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
