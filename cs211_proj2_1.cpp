@@ -21,6 +21,8 @@ int main (int argc, const char * argv[]) {
   int lda = 2;                                                                                 
   int ldb = 2;                                                                                 
 
+
+
                                                                                                
 
   double *A; 
@@ -29,7 +31,7 @@ int main (int argc, const char * argv[]) {
 
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
-  ipiv = (double*)malloc(m * sizeof(int));                                                                     
+  ipiv = (int*)malloc(m * sizeof(int));                                                                     
 
                                                                                                                                                                                                                                                                                                                                                                                            
 
