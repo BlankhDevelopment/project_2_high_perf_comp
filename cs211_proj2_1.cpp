@@ -41,7 +41,7 @@ int main (int argc, const char * argv[]) {
                                                                                                                                                                                                                                                                                        
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  subroutine dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
+  subroutine_dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
 
                                                                                                
 
