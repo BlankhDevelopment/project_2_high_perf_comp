@@ -1,9 +1,6 @@
 #include <stdio.h>                                                                             
-
 #include "cblas.h"                                                                             
-
 #include "lapacke.h"                                                                           
-
 #include <string.h>                                                                            
 
                                                                                                
@@ -16,13 +13,10 @@ int main (int argc, const char * argv[]) {
 
                                                                                                
 
-  int m = 2;                                                                                   
-  int n = 2;                                                                                   
-  int lda = 2;                                                                                 
+  int m = 3;                                                                                   
+  int n = 3;                                                                                   
+  int lda = 3;                                                                                 
   int ldb = 2;                                                                                 
-
-
-
                                                                                                
 
   double *A; 
@@ -35,9 +29,9 @@ int main (int argc, const char * argv[]) {
 
                                                                                                                                                                                                                                                                                                                                                                                            
 
-  A[0] = 4; A[1] = 6;  B[0] = 2;                                                               
+  A[0] = 4; A[1] = 6;  A[4] =  7;        B[0] = 2;                                                               
 
-  A[2] = 3; A[3] = 3;  B[1] = 10;                                                              
+  A[2] = 3; A[3] = 3;  A[5] = 4;         B[1] = 10;                                                              
 
                                                                                                                                                                                                                                                                                          
 
@@ -61,7 +55,7 @@ int main (int argc, const char * argv[]) {
 
                                                                                                
 
-  cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);      
+  /*cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);      
 
 for(int i=0; i < n; i++){
 
@@ -70,6 +64,8 @@ for(int i=0; i < n; i++){
      printf("\n");
 
 }
+
+*/
 
   return 0;
 
