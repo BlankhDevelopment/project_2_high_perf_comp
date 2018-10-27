@@ -35,9 +35,9 @@ int main (int argc, const char * argv[]) {
   A[6] = 6; A[7] = 4;  A[8] = 6;
 
   //dtrsm paramters
-  char L = 'l';
-  char U = 'u';
-  char N = 'n';
+  char *L = 'l';
+  char *U = 'u';
+  char *N = 'n';
                                                                                                                                                                                                                                                                                        
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
