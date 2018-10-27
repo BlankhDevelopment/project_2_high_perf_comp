@@ -42,7 +42,7 @@ int main (int argc, const char * argv[]) {
                                                                                                                                                                                                                                                                                        
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  LAPACK_dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
+  cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
 
                                                                                                
 
@@ -55,7 +55,7 @@ int main (int argc, const char * argv[]) {
    
    cout << endl << endl;
 
-   LAPACK_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
+   cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -66,7 +66,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-    LAPACK_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
+    cblas_dtrsm( L, U, N, U, m, n, A, lda, ipiv );    
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
