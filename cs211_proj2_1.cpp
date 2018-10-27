@@ -33,10 +33,15 @@ int main (int argc, const char * argv[]) {
   A[0] = 4; A[1] = 6;  A[2] =  7;        B[0] = 2;                                                               
   A[3] = 3; A[4] = 3;  A[5] = 4;         B[1] = 10;                                                              
   A[6] = 6; A[7] = 4;  A[8] = 6;
+
+  //dtrsm paramters
+  char L = 'l';
+  char U = 'u';
+  char N = 'n';
                                                                                                                                                                                                                                                                                        
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  LAPACKE_dtrsm( L, U, N, U, m, n, ALPHA, A, lda, ipiv );                                    
+  LAPACKE_dtrsm( L, U, N, U, m, n, A, lda, ipiv );                                    
 
                                                                                                
 
