@@ -1,7 +1,7 @@
 #include <stdio.h>                                                                             
 #include "cblas.h"                                                                             
 #include "lapacke.h"          
-#include "lapack.h"                                                                 
+#include "dtrsm.f"                                                                 
 #include <string.h>     
 #include <iostream>                                                                       
 
