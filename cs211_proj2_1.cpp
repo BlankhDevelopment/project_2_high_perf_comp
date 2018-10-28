@@ -40,9 +40,16 @@ int main (int argc, const char * argv[]) {
  // CBLAS_TRANSPOSE TRANSA = n;
  // CBLAS_DIAG DIAG = u;
  // double ALPHA = 0;                                                                                                                                                                                                                                                                                    
+ for (int i = 0; i < m; i++) {                                                                
+      for (int j = 0; j < n; j++){                                                             
+          printf("  %lf ", A[lda*j+i]);                                                        
+      }                                                                                        
+      printf("\n");                                                                                                                                                                   
+  }                 
+  cout << endl << endl;
 
-  LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-      cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
+      LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
+     // cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
                                                                                                
 
   for (int i = 0; i < m; i++) {                                                                
