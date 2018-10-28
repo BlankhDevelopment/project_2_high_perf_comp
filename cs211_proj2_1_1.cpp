@@ -14,10 +14,10 @@ int main (int argc, const char * argv[]) {
 
                                                                                                
 
-  int m = 3; //# of rows                                                                                  
-  int n = 3; //# of columns                                                                                   
-  int lda = 3; //length of first dimenssion                                                                                 
-  int ldb = 3;                                                                                 
+  int m = 4; //# of rows                                                                                  
+  int n = 4; //# of columns                                                                                   
+  int lda = 4; //length of first dimenssion                                                                                 
+  int ldb = 4;                                                                                 
                                                                                                
 
   double *A; 
@@ -30,12 +30,15 @@ int main (int argc, const char * argv[]) {
   C = (double*)malloc(m*n * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));                                                                     
 
-                                                                                                                                                                                                                                                                                                                                                                                           
+  A[0] = 2; A[1] = 0; A[2] = 0; A[3] = 0;
+  A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
+  A[8] = 6; A[9] = 2; A[10] = 1; A[11] = 0;
+  A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
 
-  A[0] = 4; A[1] = 6;  A[2] =  7;        B[0] = 14; B[1] = 11; B[2] = 6;                                                          
-  A[3] = 3; A[4] = 3;  A[5] = 4;         B[3] = 3;  B[4] = 2;  B[5] = 7;                               
-  A[6] = 6; A[7] = 4;  A[8] = 6;         B[6] = 5;  B[7] = 8;  B[8] = 11;
+ B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1                                                         
 
+
+cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
 
  for (int i = 0; i < m; i++) {                                                                
@@ -45,24 +48,21 @@ int main (int argc, const char * argv[]) {
       printf("\n");                                                                                                                                                                   
   }                 
   cout << endl << endl;
-
+    
       LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
      // cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
-                                                                                               
+
+cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
   for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+          printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
    
    cout << endl << endl;
 
-  
-B[0] = 14; B[1] = 11; B[2] = 6;  
-B[3] = 3;  B[4] = 2;  B[5] = 7;   
-B[6] = 5;  B[7] = 8;  B[8] = 11;
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);    
 
@@ -75,10 +75,6 @@ B[6] = 5;  B[7] = 8;  B[8] = 11;
 
     cout << endl << endl;
 
-    
-B[0] = 14; B[1] = 11; B[2] = 6;  
-B[3] = 3;  B[4] = 2;  B[5] = 7;   
-B[6] = 5;  B[7] = 8;  B[8] = 11;
   
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
 
