@@ -49,7 +49,7 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
   }                 
   cout << endl << endl;
     
-      LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
+      LAPACKE_dgetrf( LAPACK_ROW_MAJOR, m, n, A, lda, ipiv );  
      // cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
 
 cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
