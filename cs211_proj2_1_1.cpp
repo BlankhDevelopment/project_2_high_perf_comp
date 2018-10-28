@@ -66,24 +66,28 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);    
 
-   for (int i = 0; i < m; i++) {                                                                
-      for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+                                                                 
+      for (int j = 0; j < n; j++)
+      {                                                             
+          printf("  %lf ", B[lda*j+i]); 
+          cout << endl;                                                       
       }                                                                                        
-      printf("\n");                                                                                                                                                                   
-  }       
+                                                                                                                                                                      
+    
 
     cout << endl << endl;
 
   
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
 
-   for (int i = 0; i < m; i++) {                                                                
-      for (int j = 0; j < n; j++){                                                             
+                                                              
+      for (int j = 0; j < n; j++)
+      {                                                             
           printf("  %lf ", B[lda*j+i]);                                                        
-      }                                                                                        
-      printf("\n");                                                                                                                                                                   
-  }       
+          cout << endl;
+      }                                                                                   
+                                                                                                                                                 
+        
   
                                                                                                
   /*cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);      
