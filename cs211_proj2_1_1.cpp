@@ -1,4 +1,4 @@
-#include <stdio.h>                                                                             
+\#include <stdio.h>                                                                             
 #include "cblas.h"                                                                            
 #include "lapacke.h"                                                                           
 #include <string.h>     
@@ -22,10 +22,12 @@ int main (int argc, const char * argv[]) {
 
   double *A; 
   double *B;
+  double *C;
   int *ipiv;
 
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m*n * sizeof(double));
+  C = (double*)malloc(m*n * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));                                                                     
 
                                                                                                                                                                                                                                                                                                                                                                                            
@@ -56,6 +58,11 @@ int main (int argc, const char * argv[]) {
   }                                                                                            
    
    cout << endl << endl;
+
+  
+B[0] = 14; B[1] = 11; B[2] = 6;  
+B[3] = 3;  B[4] = 2;  B[5] = 7;   
+B[6] = 5;  B[7] = 8;  B[8] = 11;
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);    
 
@@ -67,6 +74,11 @@ int main (int argc, const char * argv[]) {
   }       
 
     cout << endl << endl;
+
+    
+B[0] = 14; B[1] = 11; B[2] = 6;  
+B[3] = 3;  B[4] = 2;  B[5] = 7;   
+B[6] = 5;  B[7] = 8;  B[8] = 11;
   
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
 
