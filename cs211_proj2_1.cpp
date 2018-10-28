@@ -42,7 +42,7 @@ int main (int argc, const char * argv[]) {
  // double ALPHA = 0;                                                                                                                                                                                                                                                                                    
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-  cblas_dtrsm(CBLAS_LAYOUT, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);  
+      cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
                                                                                                
 
   for (int i = 0; i < m; i++) {                                                                
@@ -54,7 +54,7 @@ int main (int argc, const char * argv[]) {
    
    cout << endl << endl;
   
-    cblas_dtrsm(CBLAS_LAYOUT, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);  
+       cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -65,7 +65,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-    cblas_dtrsm(CBLAS_LAYOUT, CBLAS_SIDE, CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
+    cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -83,5 +83,4 @@ for(int i=0; i < n; i++){
 
 */
   return 0;
-
 }
