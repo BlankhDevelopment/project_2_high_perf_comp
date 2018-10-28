@@ -34,12 +34,8 @@ int main (int argc, const char * argv[]) {
   A[3] = 3; A[4] = 3;  A[5] = 4;         B[3] = 3;  B[4] = 2;  B[5] = 7;                               
   A[6] = 6; A[7] = 4;  A[8] = 6;         B[6] = 5;  B[7] = 8;  B[8] = 11;
 
-  //dtrsm paramters
-    char SIDE = 'l';
- // CBLAS_UPLO UPLO = u;
- // CBLAS_TRANSPOSE TRANSA = n;
- // CBLAS_DIAG DIAG = u;
- // double ALPHA = 0;                                                                                                                                                                                                                                                                                    
+
+                                                                                                                                                                                                                                                                                
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
