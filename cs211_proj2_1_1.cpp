@@ -48,10 +48,21 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                 
-  cout << endl << endl;
+  cout << endl;
     
       LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
      // cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
+
+cout << endl << "OUTPUTTING MATRIX B: " << endl; 
+
+ for (int j = 0; j < n; j++)
+      {                                                             
+          cout << B[j];
+          cout << endl;                                                       
+      }  
+
+cout << endl;
+
 
 cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
@@ -62,8 +73,8 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
       printf("\n");                                                                                                                                                                   
   }                                                                                            
    
-   cout << endl << endl;
-     cout << "Outputting array B : " << endl;
+     cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
+
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
 
@@ -78,6 +89,7 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
 
     cout << endl << endl;
 
+    cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
   
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
 
@@ -88,15 +100,5 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
           cout << endl;
       }                                                                                   
                                                                                                                                                  
-        
-  
-                                                                                               
-  /*cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);      
-for(int i=0; i < n; i++){
-     printf("  %lf ", B[i]);
-     printf("\n");
-}
-
-*/
   return 0;
 }
