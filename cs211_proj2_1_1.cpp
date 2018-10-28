@@ -54,7 +54,7 @@ int main (int argc, const char * argv[]) {
 
   for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+          printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
@@ -65,18 +65,18 @@ int main (int argc, const char * argv[]) {
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+          printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }       
 
     cout << endl << endl;
   
-    cblas_dtrsm(CblasRowMajor, CblasRight, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
+    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+          printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }       
