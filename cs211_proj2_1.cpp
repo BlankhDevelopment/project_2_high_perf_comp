@@ -35,14 +35,14 @@ int main (int argc, const char * argv[]) {
   A[6] = 6; A[7] = 4;  A[8] = 6;         B[6] = 11; B[7] = 6; B[8] = 11;
 
   //dtrsm paramters
- // CBLAS_SIDE SIDE = l;
+    char SIDE = 'l';
  // CBLAS_UPLO UPLO = u;
  // CBLAS_TRANSPOSE TRANSA = n;
  // CBLAS_DIAG DIAG = u;
  // double ALPHA = 0;                                                                                                                                                                                                                                                                                    
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-      cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
+      cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, ALPHA, A, lda, B, ldb);   
                                                                                                
 
   for (int i = 0; i < m; i++) {                                                                
@@ -54,7 +54,7 @@ int main (int argc, const char * argv[]) {
    
    cout << endl << endl;
   
-       cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
+      cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, ALPHA, A, lda, B, ldb);    
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -65,7 +65,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-    cblas_dtrsm(CBLAS_LAYOUT = LAPACK_COL_MAJOR, CBLAS_SIDE = 'l', CSBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, m, n, ALPHA, A, lda, B, ldb);   
+    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, ALPHA, A, lda, B, ldb);     
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
