@@ -35,7 +35,7 @@ int main (int argc, const char * argv[]) {
   A[6] = 6; A[7] = 4;  A[8] = 6;         B[6] = 5;  B[7] = 8;  B[8] = 11;
 
 
-                                                                                                                                                                                                                                                                                
+
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
@@ -68,7 +68,7 @@ int main (int argc, const char * argv[]) {
 
     cout << endl << endl;
   
-    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
+    cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
