@@ -35,10 +35,10 @@ int main (int argc, const char * argv[]) {
   A[6] = 6; A[7] = 4;  A[8] = 6;         B[6] = 11; B[7] = 6; B[8] = 11;
 
   //dtrsm paramters
-  char SIDE = 'l';
-  char UPLO = 'u';
-  char TRANSA = 'n';
-  char DIAG = 'u';
+  CBLAS_SIDE SIDE = 'l';
+  CBLAS_UPLO UPLO = 'u';
+  CBLAS_TRANSPOSE TRANSA = 'n';
+  CBLAS_DIAG DIAG = 'u';
   double ALPHA = 0;                                                                                                                                                                                                                                                                                    
 
   LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
