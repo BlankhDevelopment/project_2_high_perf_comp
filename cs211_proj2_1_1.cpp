@@ -54,7 +54,7 @@ int main (int argc, const char * argv[]) {
 
   for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", A[lda*j+i]);                                                        
+          printf("  %lf ", B[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
@@ -65,7 +65,7 @@ int main (int argc, const char * argv[]) {
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", A[lda*j+i]);                                                        
+          printf("  %lf ", B[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }       
@@ -76,7 +76,7 @@ int main (int argc, const char * argv[]) {
 
    for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
-          printf("  %lf ", A[lda*j+i]);                                                        
+          printf("  %lf ", B[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }       
