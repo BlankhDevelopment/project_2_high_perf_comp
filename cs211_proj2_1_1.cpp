@@ -62,9 +62,9 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
   }                                                                                            
    
    cout << endl << endl;
-
+     cout << "Outputting array B : " << endl;
   
-      cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);    
+      cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
 
                                                                  
       for (int j = 0; j < n; j++)
@@ -78,7 +78,7 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
     cout << endl << endl;
 
   
-    cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);     
+    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
 
                                                               
       for (int j = 0; j < n; j++)
