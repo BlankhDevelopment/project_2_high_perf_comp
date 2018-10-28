@@ -87,7 +87,6 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
                                                                                                                                                                       
     
 
-    cout << endl << endl;
 
     cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
   
