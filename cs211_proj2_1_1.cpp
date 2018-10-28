@@ -35,7 +35,7 @@ int main (int argc, const char * argv[]) {
   A[8] = 6; A[9] = 2; A[10] = 1; A[11] = 0;
   A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
 
- B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1                                                         
+ B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;                                                         
 
 
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
