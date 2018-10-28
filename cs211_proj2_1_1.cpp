@@ -1,4 +1,4 @@
-\#include <stdio.h>                                                                             
+#include <stdio.h>                                                                             
 #include "cblas.h"                                                                            
 #include "lapacke.h"                                                                           
 #include <string.h>     
