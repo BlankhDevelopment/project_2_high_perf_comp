@@ -69,7 +69,7 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
                                                                  
       for (int j = 0; j < n; j++)
       {                                                             
-          printf("  %lf ", B[lda*j+i]); 
+          printf("  %lf ", B[j]); 
           cout << endl;                                                       
       }                                                                                        
                                                                                                                                                                       
@@ -83,7 +83,7 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
                                                               
       for (int j = 0; j < n; j++)
       {                                                             
-          printf("  %lf ", B[lda*j+i]);                                                        
+          printf("  %lf ", B[j]);                                                        
           cout << endl;
       }                                                                                   
                                                                                                                                                  
