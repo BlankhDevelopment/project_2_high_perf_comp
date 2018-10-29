@@ -56,7 +56,7 @@ int main (int argc, const char * argv[]) {
  C[0] = 2; C[1] = 10; C[2] = 5; // used as a temp array 
 
 
-/*
+
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
 
@@ -67,7 +67,7 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
       printf("\n");                                                                                                                                                                   
   }                 
   cout << endl;
-*/
+
 
 cout << "Performing dgetrf (LU factorization) with matrix size: " << n << endl;
 
