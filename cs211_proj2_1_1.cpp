@@ -33,7 +33,7 @@ int main (int argc, const char * argv[]) {
   const int n = atoi(argv[1]);
   int m = n; //# of rows                                                                                                                                                                  
   int lda = n; //length of first dimenssion                                                                                 
-  int ldb = n;                                                                                 
+  int ldb = n; // length of second dimension                                                                   
                                                                                                
   double *A; 
   double *B;
@@ -50,11 +50,10 @@ int main (int argc, const char * argv[]) {
 
   A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
   A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
-  A[8] = 6; /*A[9] = 2; A[10] = 1; A[11] = 0;
-  A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
- B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;    */                                         
+  A[8] = 6; 
+                                      
  B[0] = 2; B[1] = 10; B[2] = 5;
- //C[0] = 2; C[1] = 10;
+ C[0] = 2; C[1] = 10; C[2] = 5; // used as a temp array 
 
 
 /*
@@ -113,6 +112,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       
       B[0] = C[0];
       B[1] = C[1];
+      B[2] = C[2];
 
 
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
