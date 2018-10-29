@@ -38,7 +38,7 @@ int main (int argc, const char * argv[]) {
   int *ipiv;
 
   A = (double*)malloc(m*n * sizeof(double));
-  B = (double*)malloc(m*n * sizeof(double));
+  B = (double*)malloc(m * sizeof(double));
   C = (double*)malloc(m*n * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
