@@ -42,19 +42,20 @@ int main (int argc, const char * argv[]) {
 
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
-  C = (double*)malloc(m*n * sizeof(double));
+  C = (double*)malloc(m * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
   FillMatrix(A, B, n);     
 
 
-/*  A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
-  A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
+  A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
+ /* A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
   A[8] = 6; A[9] = 2; A[10] = 1; A[11] = 0;
   A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
- B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;                                                         
+ B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;    */                                         
  B[0] = 2; B[1] = 10;
-*/
+ C[0] = 2; C[1] = 10;
+
 
 /*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
@@ -81,17 +82,9 @@ t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-/* outputs matrix B
- for (int j = 0; j < n; j++)
-      {                                                             
-          cout << B[j];
-          cout << endl;                                                       
-      }  
 
-cout << endl;
-*/
 
-/*
+
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
   for (int i = 0; i < m; i++) {                                                                
@@ -100,7 +93,6 @@ cout << endl;
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
-   */
      
     
     
@@ -111,15 +103,16 @@ cout << endl;
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
 
-/*
-        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
+
+        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET Y-coefficient list: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
           cout << endl;                                                       
       }                                                                                        
-                                                                                                                                                                      
- */   
+      
+      B[0] = C[0];
+      B[1] = C[1];
 
 
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
@@ -129,14 +122,14 @@ cout << endl;
 
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-    /* cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
+     cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET X-coefficient list: " << endl;
                                                             
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];                                                      
           cout << endl;
       }                                                                                   
-      */
+      
 
   return 0;
 }
