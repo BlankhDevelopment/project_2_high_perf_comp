@@ -140,12 +140,11 @@ int main (int argc, const char * argv[]) {
   FillMatrix(A, B, n);     
 
 
- // A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
-/*  A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
-  A[8] = 6; A[9] = 2; A[10] = 1; A[11] = 0;
-  A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
- B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;  */                                                  
-// B[0] = 2; B[1] = 10;
+  A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
+  A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
+  A[8] = 6;                                                                                                                                                                                                                                                                                                                                                                                        
+ B[0] = 2; B[1] = 10; B[2] = 5;                                               
+
 
 
 /*
@@ -171,16 +170,15 @@ t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-/*
-//outputs matrix B
- for (int j = 0; j < n; j++)
-      {                                                             
-          cout << A[j];
-          cout << endl;                                                       
-      }  
 
-cout << endl;
-*/
+//outputs matrix A
+ for (int i = 0; i < m; i++) {                                                                
+      for (int j = 0; j < n; j++){                                                             
+          printf("  %lf ", A[lda*j+i]);                                                        
+      }                                                                                        
+      printf("\n");                                                                                                                                                                   
+  }     
+
 
 /*
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
