@@ -37,7 +37,7 @@ int main (int argc, const char * argv[]) {
                                                                                                
   double *A; //matrix A
   double *B; //matrix B
-  double *C; //used to swap B
+  double *C; //used to swap B incase we need to
   int *ipiv;
 
   A = (double*)malloc(m*n * sizeof(double));
@@ -110,9 +110,6 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
           cout << endl;                                                       
       }                                                                                        
       
-      B[0] = C[0];
-      B[1] = C[1];
-      B[2] = C[2];
 
 
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
