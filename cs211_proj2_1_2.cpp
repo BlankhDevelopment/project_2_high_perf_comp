@@ -18,11 +18,11 @@ void mydegtrf(double arr[], int array_size)
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
     double *tempv;
     tempv = (double*)malloc(array_size* sizeof(double)); 
-    for(int i = 0; i < n; i++) //for 1-->(n-1)
+    for(int i = 0; i < n-1; i++) //for 1-->(n-1)
     {
         int maxind = i;
         double max = fabs(arr[i*n + i]); //this will be the same as A(i,i)
-        for (int t = i + 1; t <= n; t++)
+        for (int t = i + 1; t < n; t++)
         {
             if(fabs(arr[t*n + i])>max)
             {
@@ -51,10 +51,10 @@ void mydegtrf(double arr[], int array_size)
             }
         }
         //factorization
-        for(int j = i + 1; j <= n; j++)
+        for(int j = i + 1; j < n; j++)
         {
             arr[j*n + i] = arr[j*n + i]/arr[i*n + i];
-            for(int k = i + 1; i <= n; i++)
+            for(int k = i + 1; k < n; k++)
             {
                 arr[j*n + k] = arr[j*n + k] - (arr[j*n+i] * arr[i*n + k]);
             }
