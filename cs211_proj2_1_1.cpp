@@ -12,9 +12,9 @@ void FillMatrix(double arr1[], double arr2[], int array_size)
 {
 	int m = 0;
 
+     srand(1);
 	for (m = 0; m < array_size*array_size; ++m)
 	{
-        srand(1);
 		arr1[m] = rand() % 100;
 	}
 
