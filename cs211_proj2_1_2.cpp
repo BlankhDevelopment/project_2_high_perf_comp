@@ -126,7 +126,7 @@ int main (int argc, const char * argv[]) {
   const int n = atoi(argv[1]);
   int m = n; //# of rows                                                                                                                                                                  
   int lda = n; //length of first dimenssion                                                                                 
-  int ldb = n;                                                                                 
+  int ldb = n; //leading dimension of b                                                                    
                                                                                                
   double *A; 
   double *B;
@@ -140,12 +140,12 @@ int main (int argc, const char * argv[]) {
 
   FillMatrix(A, B, n);     
 
-
+/*
   A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
   A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
   A[8] = 6;                                                                                                                                                                                                                                                                                                                                                                                        
  B[0] = 2; B[1] = 10; B[2] = 5;                                               
-
+*/
 
 
 /*
@@ -173,15 +173,16 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
+/*
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }     
-
-
+*/
 /*
+
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
   for (int i = 0; i < m; i++) {                                                                
@@ -190,16 +191,20 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
-   */
-     
+   
+  */   
     
     
-/*    
-     cout << "Performing dtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
+   
+     cout << "Performing mydtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
     
       t = clock();
-  
-      cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
+      mydtrsmfwd(A, B, n); //performing forward subsitution
+      mydtrsmbwd(A, B, n);  // performing backward substitution
+
+      t = clock() - t;
+
+      cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
 /*
         cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
