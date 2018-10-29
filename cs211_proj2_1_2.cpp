@@ -6,11 +6,10 @@
 #include "cblas.h"                                                                            
 #include "lapacke.h"                                                                           
 #include <string.h>     
-#include <iostream>                                                                       
+#include <iostream>                                                                                                                                                       
 
-                                                                                               
+using namespace std; 
 
-using namespace std;           
 
 void mydegtrf(double arr[], int array_size)
 {
@@ -64,6 +63,26 @@ void mydegtrf(double arr[], int array_size)
 
 }
 
+double* mydtrsmfwd(double arr[], double arr2[], int array_size)
+{
+    double sum = 0.0;
+    int n = array_size;
+    double *y;
+    y = (double*)malloc(array_size* sizeof(double));
+    y[0] = arr2[0];
+    for (int i = 1; i < n; i++)
+    {
+        sum = 0.0;
+        for(int r = 0; r < i; r++)
+        {
+            sum += y[r] * A[i*n + i];
+        }
+        y[i] = arr2[i] - sum;
+    }
+
+    return y;
+}
+
 void FillMatrix(double arr1[], double arr2[], int array_size)
 {
 	int m = 0;
@@ -98,15 +117,15 @@ int main (int argc, const char * argv[]) {
   C = (double*)malloc(m*n * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
- // FillMatrix(A, B, n);     
+  FillMatrix(A, B, n);     
 
 
-  A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
+ // A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
 /*  A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
   A[8] = 6; A[9] = 2; A[10] = 1; A[11] = 0;
   A[12] = 0; A[13] = 0; A[14] = 0; A[15] = 0;                                                                                                                                                                                                                                                                                                                                                                                       
  B[0] = 4; B[1] = -4; B[2] = 15; B[3] = -1;  */                                                  
- B[0] = 2; B[1] = 10;
+// B[0] = 2; B[1] = 10;
 
 
 /*
@@ -132,6 +151,7 @@ t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
+/*
 //outputs matrix B
  for (int j = 0; j < n; j++)
       {                                                             
@@ -140,7 +160,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       }  
 
 cout << endl;
-
+*/
 
 /*
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
