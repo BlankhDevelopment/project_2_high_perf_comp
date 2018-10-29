@@ -46,7 +46,8 @@ void mydegtrf(double arr[], int array_size)
                 for(int r = 0; r < array_size; ++r)
                 {
                     tempv[r] = arr[i*n+r];
-                    arr[i*n + r] = arr[maxind*n+r];
+                    arr[i*n + r] = arr[maxind*n + r];
+                    arr[maxind*n + r] = tempv[r];
                 }
             }
         }
