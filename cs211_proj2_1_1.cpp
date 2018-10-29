@@ -104,7 +104,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
 
 
-        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET Y-coefficient list: " << endl;                                                           
+        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION, WE GET Y-coefficient list: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
@@ -120,15 +120,17 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
     
       t = clock() - t;
 
-      cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
+      
 
-     cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET X-coefficient list: " << endl;
+     cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION, WE GET X-coefficient list: " << endl;
                                                             
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];                                                      
           cout << endl;
-      }                                                                                   
+      }       
+
+      cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;                                                                            
       
 
   return 0;
