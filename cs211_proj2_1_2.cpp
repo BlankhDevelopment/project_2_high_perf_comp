@@ -75,12 +75,31 @@ double* mydtrsmfwd(double arr[], double arr2[], int array_size)
         sum = 0.0;
         for(int r = 0; r < i; r++)
         {
-            sum += y[r] * arr[i*n + i];
+            sum += y[r] * arr[i*n + r];
         }
         y[i] = arr2[i] - sum;
     }
 
     return y;
+}
+
+double* mydtrsmbwd(double arr[], double arr2[], int array_size)
+{
+    double sum = 0.0;
+    int n = array_size;
+    double *x;
+    x = (double*)malloc(array_size* sizeof(double));
+    x[n-1] = arr2[n-1] / A[(n-1) * (n-1)]; //x(n) = y(n) / A(n,n)
+    for (int i = n-2; i >= 0; i--)
+    {
+        sum = 0.0;
+        for(int r = i + 1; r < n; r++)
+        {
+            sum += x[r] * A[i*n+r];
+        }
+        x[i] = (arr2[i] - sum) / arr[i*n + i];
+    }
+
 }
 
 void FillMatrix(double arr1[], double arr2[], int array_size)
