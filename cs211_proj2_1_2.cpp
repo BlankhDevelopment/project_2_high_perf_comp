@@ -132,15 +132,15 @@ t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-/* outputs matrix B
+//outputs matrix B
  for (int j = 0; j < n; j++)
       {                                                             
-          cout << B[j];
+          cout << A[j];
           cout << endl;                                                       
       }  
 
 cout << endl;
-*/
+
 
 /*
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
