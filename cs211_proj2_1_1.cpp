@@ -69,7 +69,7 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
   cout << endl;
 */
 
-cout << "Performing dgetrf with matrix size: " << n << endl;
+cout << "Performing dgetrf (LU factorization) with matrix size: " << n << endl;
 
 clock_t t;
 
@@ -91,7 +91,8 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 cout << endl;
 */
 
-cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
+/*
+  cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
   for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
@@ -99,32 +100,43 @@ cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << end
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }                                                                                            
-   
-     cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
-
+   */
+     
+    
+    
+    
+     cout << "Performing dtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
+    
+      t = clock();
   
       cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
 
-                                                                 
+/*
+        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
           cout << endl;                                                       
       }                                                                                        
                                                                                                                                                                       
-    
+ */   
 
 
-    cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
-  
     cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
 
-                                                              
+    
+      t = clock() - t;
+
+      cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
+
+    /* cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
+                                                            
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];                                                      
           cout << endl;
       }                                                                                   
-                                                                                                                                                 
+      */
+
   return 0;
 }
