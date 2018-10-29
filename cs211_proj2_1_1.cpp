@@ -35,9 +35,9 @@ int main (int argc, const char * argv[]) {
   int lda = n; //length of first dimenssion                                                                                 
   int ldb = n; // length of second dimension                                                                   
                                                                                                
-  double *A; 
-  double *B;
-  double *C;
+  double *A; //matrix A
+  double *B; //matrix B
+  double *C; //used to swap B
   int *ipiv;
 
   A = (double*)malloc(m*n * sizeof(double));
