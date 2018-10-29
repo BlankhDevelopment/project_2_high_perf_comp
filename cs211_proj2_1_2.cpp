@@ -30,7 +30,7 @@ void mydegtrf(double arr[], int array_size)
                 maxind = t; 
                 max = fabs(arr[t*n+i]);
             }
-        
+        }
         if (max == 0)
         {
              cout << "LUFactoration failed: coefficient matrix is singular" << endl; return;
