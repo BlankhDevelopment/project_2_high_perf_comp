@@ -140,12 +140,12 @@ int main (int argc, const char * argv[]) {
 
   FillMatrix(A, B, n);     
 
-
+/*
   A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
   A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
   A[8] = 6;                                                                                                                                                                                                                                                                                                                                                                                        
  B[0] = 2; B[1] = 10; B[2] = 5;                                               
-
+*/
 
 
 /*
@@ -173,14 +173,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
-
+/*
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }     
-
+*/
 /*
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
@@ -206,14 +206,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-
+/*
         cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
           cout << endl;                                                       
       }                                                                                        
-                                                                                                                                                                      
+ */                                                                                                                                                                     
    
 
 /*
