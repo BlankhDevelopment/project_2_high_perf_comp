@@ -1,4 +1,7 @@
-#include <stdio.h>                                                                             
+#include <stdio.h>         
+#include <ctime>
+#include <iomanip>
+#include <cstdlib>                                                                    
 #include "cblas.h"                                                                            
 #include "lapacke.h"                                                                           
 #include <string.h>     
@@ -42,7 +45,8 @@ int main (int argc, const char * argv[]) {
   C = (double*)malloc(m*n * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
-  FillMatrix(A, B, n);                                                        
+  FillMatrix(A, B, n);     
+
 
 /*  A[0] = 4; A[1] = 6; A[2] = 3; A[3] = 3;
   A[4] = -2; A[5] = 1; A[6] = -1; A[7] = 0;
@@ -52,6 +56,7 @@ int main (int argc, const char * argv[]) {
  B[0] = 2; B[1] = 10;
 */
 
+/*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
 
@@ -62,12 +67,21 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
       printf("\n");                                                                                                                                                                   
   }                 
   cout << endl;
+*/
+
+cout << "Performing dgetrf with matrix size: " << n << endl:
+
+clock_t t;
+
+t = clock();
     
-      LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
-     // cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, 1.0, A, lda, B, ldb);   
+LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
 
-cout << endl << "OUTPUTTING MATRIX B: " << endl; 
+t = clock() - t;
 
+cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
+
+/* outputs matrix B
  for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
@@ -75,7 +89,7 @@ cout << endl << "OUTPUTTING MATRIX B: " << endl;
       }  
 
 cout << endl;
-
+*/
 
 cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
