@@ -1,7 +1,8 @@
 #include <stdio.h>         
 #include <ctime>
 #include <iomanip>
-#include <cstdlib>                                                                    
+#include <cstdlib>               
+#include <math.h>                                                     
 #include "cblas.h"                                                                            
 #include "lapacke.h"                                                                           
 #include <string.h>     
@@ -21,7 +22,7 @@ void mydegtrf(double arr[], int array_size)
     for(int i = 0; i < n; i++) //for 1-->(n-1)
     {
         int maxind = i;
-        int max = abs(arr[i*n + i]); //this will be the same as A(i,i)
+        double max = abs(arr[i*n + i]); //this will be the same as A(i,i)
         for (int t = i + 1; t <= n; t++)
         {
             if(abs(arr[t*n + i])>max)
