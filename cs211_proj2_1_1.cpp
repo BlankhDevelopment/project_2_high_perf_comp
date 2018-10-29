@@ -69,7 +69,7 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
   cout << endl;
 */
 
-cout << "Performing dgetrf with matrix size: " << n << endl:
+cout << "Performing dgetrf with matrix size: " << n << endl;
 
 clock_t t;
 
