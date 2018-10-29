@@ -75,7 +75,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int array_size)
         sum = 0.0;
         for(int r = 0; r < i; r++)
         {
-            sum += y[r] * A[i*n + i];
+            sum += y[r] * arr[i*n + i];
         }
         y[i] = arr2[i] - sum;
     }
