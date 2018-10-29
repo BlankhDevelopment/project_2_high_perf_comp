@@ -14,7 +14,7 @@ using namespace std;
 void mydegtrf(double arr[], int array_size)
 {
     int n = array_size;
-    int pvt*;
+    int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
     double tempv*;
     tempv = (double*)malloc(array_size* sizeof(double)); 
