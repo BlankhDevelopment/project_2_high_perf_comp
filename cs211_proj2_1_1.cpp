@@ -33,12 +33,12 @@ int main (int argc, const char * argv[]) {
   const int n = atoi(argv[1]);
   int m = n; //# of rows                                                                                                                                                                  
   int lda = n; //length of first dimenssion                                                                                 
-  int ldb = n; // length of second dimension                                                                   
+  //int ldb = n; // length of second dimension                                                                   
                                                                                                
   double *A; //matrix A
   double *B; //matrix B
   double *C; //used to swap B incase we need to
-  int *ipiv;
+  int *ipiv; //used to be the pivot
 
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
@@ -75,14 +75,24 @@ clock_t t;
 
 t = clock();
     
-LAPACKE_dgetrf( LAPACK_COL_MAJOR, m, n, A, lda, ipiv );  
+LAPACKE_dgetrf( LAPACK_ROW_MAJOR, m, n, A, lda, ipiv );  
 
 t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
 
-
+for(int i = 0; i < n; i++)
+{
+    ipiv[i] = ipiv[i] - 1;
+}
+ //this is how we swap the arrays
+for(int i = 0; i < n; i++)
+{
+    double temp = B[i];
+    B[i] = B[ipiv[i]];
+    B[ipiv[i]] = temp;
+}
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
 
@@ -100,10 +110,10 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
     
       t = clock();
   
-      cblas_dtrsm(CblasColMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);    
+      cblas_dtrsm(CblasRowMajor, CblasLeft, CblasLower, CblasNoTrans, CblasUnit, m, 1, 1.0, A, lda, B, 1);    
 
-
-        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION, WE GET Y-coefficient list: " << endl;                                                           
+      
+      cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION, WE GET Y-coefficient list: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << B[j];
@@ -112,13 +122,13 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       
 
 
-    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
+    cblas_dtrsm(CblasRowMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, 1);     
 
     
-      t = clock() - t;
+     t = clock() - t;
 
       
-
+     
      cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION, WE GET X-coefficient list: " << endl;
                                                             
       for (int j = 0; j < n; j++)
