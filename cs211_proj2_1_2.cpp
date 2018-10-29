@@ -25,10 +25,10 @@ void mydegtrf(double arr[], int array_size)
         double max = fabs(arr[i*n + i]); //this will be the same as A(i,i)
         for (int t = i + 1; t <= n; t++)
         {
-            if(abs(arr[t*n + i])>max)
+            if(fabs(arr[t*n + i])>max)
             {
                 maxind = t; 
-                max = abs(arr[t*n+i]);
+                max = fabs(arr[t*n+i]);
             }
         
         if (max == 0)
