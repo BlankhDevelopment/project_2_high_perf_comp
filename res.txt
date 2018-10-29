@@ -1,0 +1,2 @@
+Performing mydgetrf (LU factorization) with matrix size: 2
+This process took: 0 seconds
