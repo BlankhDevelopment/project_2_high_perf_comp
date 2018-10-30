@@ -135,7 +135,7 @@ int main (int argc, const char * argv[]) {
   const int n = atoi(argv[1]);
   int m = n; //# of rows                                                                                                                                                                  
   int lda = n; //length of first dimenssion                                                                                 
-  int ldb = n; //leading dimension of b                                                                    
+  int ldb = 1; //leading dimension of b                                                                    
                                                                                                
   double *A; 
   double *B;
@@ -203,7 +203,7 @@ for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
-//ipiv[2] = 2;
+ipiv[2] = 2;
 
 /*
 
