@@ -199,7 +199,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
     
       t = clock();
       C = mydtrsmfwd(A, B, n); //performing forward subsitution
-      mydtrsmbwd(A, C, n);  // performing backward substitution
+      C = mydtrsmbwd(A, C, n);  // performing backward substitution
 
       t = clock() - t;
 
