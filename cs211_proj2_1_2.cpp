@@ -79,8 +79,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     double *y;
     y = (double*)malloc(array_size* sizeof(double));
     y[0] = arr2[pivot[0]];
-    for (int i = 1; i < n; i++)
-    {
+    for (int i = 0; i < n; i++)
         sum = 0.0;
         for(int r = 0; r < i-1; r++)
         {
@@ -203,7 +202,7 @@ for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
-ipiv[2] = 2;
+//ipiv[2] = 2;
 
 /*
 
