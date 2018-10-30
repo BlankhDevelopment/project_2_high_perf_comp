@@ -189,20 +189,21 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
       printf("\n");                                                                                                                                                                   
   }    
 
-  //swapping arrays 
+/*  //swapping arrays 
 for(int i = 0; i < n; i++)
 {
     double temp = B[i];
     B[i] = B[ipiv[i]];
     B[ipiv[i]] = temp;
-} 
+}
+*/ 
 
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
-ipiv[2] = 2;
+//ipiv[2] = 2;
 
 /*
 
