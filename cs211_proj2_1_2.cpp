@@ -82,7 +82,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     for (int i = 1; i < n; i++)
     {
         sum = 0.0;
-        for(int r = 0; r < i-1; r++)
+        for(int r = 0; r < i; r++)
         {
             sum = sum + (y[r] * arr[i*n + r]);
         }
@@ -154,7 +154,7 @@ int main (int argc, const char * argv[]) {
   A[8] = 3; 
                                       
  B[0] = 1; B[1] = 6; B[2] = 4;
- C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
+// C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
 
 
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
@@ -223,7 +223,7 @@ for (int i = 0; i < n; i++)
      cout << "Performing mydtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
     
       t = clock();
-    //  C = mydtrsmfwd(A, B, ipiv, n); //performing forward subsitution
+     C = mydtrsmfwd(A, B, ipiv, n); //performing forward subsitution
     cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
