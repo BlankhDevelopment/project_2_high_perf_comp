@@ -82,7 +82,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     for (int i = 1; i < n; i++)
     {
         sum = 0.0;
-        for(int r = 0; r < i; r++)
+        for(int r = 0; r < i-1; r++)
         {
             sum += y[r] * arr[i*n + r];
         }
