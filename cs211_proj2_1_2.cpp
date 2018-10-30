@@ -198,6 +198,7 @@ for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
+ipiv[2] = 2;
 
 /*
 
