@@ -69,13 +69,13 @@ int* mydegtrf(double arr[], int array_size)
     return pvt;
 }
 
-double* mydtrsmfwd(double arr[], double arr2[], int array_size)
+double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
 {
     double sum = 0.0;
     int n = array_size;
     double *y;
     y = (double*)malloc(array_size* sizeof(double));
-    y[0] = arr2[0];
+    y[0] = pivot[0];
     for (int i = 1; i < n; i++)
     {
         sum = 0.0;
@@ -83,7 +83,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int array_size)
         {
             sum += y[r] * arr[i*n + r];
         }
-        y[i] = arr2[i] - sum;
+        y[i] = arr2[pivot[i]] - sum;
     }
 
     return y;
@@ -218,7 +218,7 @@ ipiv[2] = 2;
      cout << "Performing mydtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
     
       t = clock();
-      C = mydtrsmfwd(A, B, n); //performing forward subsitution
+      C = mydtrsmfwd(A, B, ipiv, n); //performing forward subsitution
     cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
