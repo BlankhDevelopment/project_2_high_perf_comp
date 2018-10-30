@@ -99,7 +99,7 @@ double* mydtrsmbwd(double arr[], double arr2[], int array_size)
     int n = array_size;
     double *x;
     x = (double*)malloc(array_size* sizeof(double));
-    x[n-1] = arr2[n-1] / arr[(n-1) * (n-1)]; //x(n) = y(n) / A(n,n)
+    x[n-1] = arr2[n-1] / arr[(n-1)*(n) + (n-1)]; //x(n) = y(n) / A(n,n)
     for (int i = n-2; i >= 0; i--)
     {
         sum = 0.0;
