@@ -198,8 +198,8 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
      cout << "Performing mydtrsm (fwd/bwd substitution) with matrix size: " << n << endl;
     
       t = clock();
-      mydtrsmfwd(A, B, n); //performing forward subsitution
-      mydtrsmbwd(A, B, n);  // performing backward substitution
+      C = mydtrsmfwd(A, B, n); //performing forward subsitution
+      mydtrsmbwd(A, C, n);  // performing backward substitution
 
       t = clock() - t;
 
@@ -209,7 +209,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
         cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
-          cout << B[j];
+          cout << C[j];
           cout << endl;                                                       
       }                                                                                        
                                                                                                                                                                      
