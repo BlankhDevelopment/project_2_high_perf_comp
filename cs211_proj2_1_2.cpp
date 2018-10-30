@@ -184,6 +184,7 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
   //swapping arrays 
 for(int i = 0; i < n; i++)
 {
+    ipiv[i] -= 1;
     double temp = B[i];
     B[i] = B[ipiv[i]];
     B[ipiv[i]] = temp;
