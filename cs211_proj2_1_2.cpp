@@ -71,7 +71,7 @@ int* mydegtrf(double arr[], int array_size)
     return pvt;
 }
 
-//FORWARD SUBSTITUTION
+//FORWARD SUBSTITUTION curated with Matlab code
 double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
 {
     double sum = 0.0;
@@ -92,7 +92,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     return y;
 }
 
-//BACKWARDS SUBSTITUTION
+//BACKWARDS SUBSTITUTION curated with Matlab code
 double* mydtrsmbwd(double arr[], double arr2[], int array_size)
 {
     double sum = 0.0;
@@ -109,7 +109,6 @@ double* mydtrsmbwd(double arr[], double arr2[], int array_size)
         }
         x[i] = (arr2[i] - sum) / arr[i*n + i];
     }
-
     return x;
 }
 
@@ -148,14 +147,14 @@ int main (int argc, const char * argv[]) {
   ipiv = (int*)malloc(m* sizeof(int));             
 
   FillMatrix(A, B, n);     
-
+/*
   A[0] = 1; A[1] = 1; A[2] = 1; A[3] = 4;
   A[4] = 3; A[5] = -1; A[6] = 3; A[7] = 5;
   A[8] = 3; 
                                       
  B[0] = 1; B[1] = 6; B[2] = 4;
 // C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
-
+*/
 
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
