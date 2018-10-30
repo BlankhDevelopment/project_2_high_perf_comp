@@ -161,7 +161,7 @@ int main (int argc, const char * argv[]) {
   
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
-  C = (double*)malloc(m*n * sizeof(double));
+  C = (double*)malloc((m*n+10) * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
   FillMatrix(A, B, n);     
