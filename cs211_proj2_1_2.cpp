@@ -32,7 +32,7 @@ int* mydegtrf(double arr[], int array_size)
         }
         if (max == 0)
         {
-             cout << "LUFactoration failed: coefficient matrix is singular" << endl; return;
+             cout << "LUFactoration failed: coefficient matrix is singular" << endl; return 0;
         }
         else
         {
@@ -62,6 +62,7 @@ int* mydegtrf(double arr[], int array_size)
         }
     }
 
+    return pvt;
 }
 
 double* mydtrsmfwd(double arr[], double arr2[], int array_size)
