@@ -192,7 +192,7 @@ for(int i = 0; i < n; i++)
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
-    cout << pvt[i] << endl;
+    cout << ipiv[i] << endl;
 }
 
 /*
