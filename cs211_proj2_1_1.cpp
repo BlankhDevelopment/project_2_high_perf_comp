@@ -86,6 +86,12 @@ for(int i = 0; i < n; i++)
 {
     ipiv[i] = ipiv[i] - 1;
 }
+
+cout << "Printing our ipiv: " << endl;
+for(int i = 0; i < n; i++)
+{
+    cout << ipiv[i] << endl;
+}
  //this is how we swap the arrays
 for(int i = 0; i < n; i++)
 {
