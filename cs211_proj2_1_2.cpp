@@ -199,6 +199,12 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
     
       t = clock();
       C = mydtrsmfwd(A, B, n); //performing forward subsitution
+    cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
+      for (int j = 0; j < n; j++)
+      {                                                             
+          cout << C[j];
+          cout << endl;                                                       
+      }       
       C = mydtrsmbwd(A, C, n);  // performing backward substitution
 
       t = clock() - t;
