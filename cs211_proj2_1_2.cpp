@@ -11,7 +11,7 @@
 using namespace std; 
 
 
-void mydegtrf(double arr[], int array_size)
+int* mydegtrf(double arr[], int array_size)
 {
     int n = array_size;
     int *pvt;
@@ -165,7 +165,7 @@ cout << "Performing mydgetrf (LU factorization) with matrix size: " << n << endl
 clock_t t;
 
 t = clock();
-mydegtrf(A, n);
+ipiv = mydegtrf(A, n);
 t = clock() - t;
 
 cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
@@ -178,7 +178,15 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
-  }     
+  }    
+
+  //swapping arrays 
+for(int i = 0; i < n; i++)
+{
+    double temp = B[i];
+    B[i] = B[ipiv[i]];
+    B[ipiv[i]] = temp;
+} 
 
 /*
 
