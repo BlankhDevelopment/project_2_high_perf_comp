@@ -11,6 +11,8 @@
 using namespace std; 
 
 
+//THIS IS A CAREFUL CURATION OF THE MATLAB CODE
+
 int* mydegtrf(double arr[], int array_size)
 {
     int n = array_size;
@@ -69,13 +71,14 @@ int* mydegtrf(double arr[], int array_size)
     return pvt;
 }
 
+//FORWARD SUBSTITUTION
 double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
 {
     double sum = 0.0;
     int n = array_size;
     double *y;
     y = (double*)malloc(array_size* sizeof(double));
-    y[0] = pivot[0];
+    y[0] = arr2[pivot[0]];
     for (int i = 1; i < n; i++)
     {
         sum = 0.0;
@@ -89,6 +92,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     return y;
 }
 
+//BACKWARDS SUBSTITUTION
 double* mydtrsmbwd(double arr[], double arr2[], int array_size)
 {
     double sum = 0.0;
@@ -232,7 +236,7 @@ ipiv[2] = 2;
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
 
-        cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
+        cout << endl << "AFTER PERFORMING BACKWARDS SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << C[j];
