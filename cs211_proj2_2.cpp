@@ -58,7 +58,7 @@ int* mydegtrf(double arr[], int array_size)
                 }
             }
         }
-     /*   //blocked code
+       //blocked code
         for (int j = i + 1; j < n; j += block)
         {
             for (int k = i + 1; k < n; k += block)
@@ -73,8 +73,8 @@ int* mydegtrf(double arr[], int array_size)
                 }
             }
         }
-        */
         
+        /*
         //factorization
         for(int j = i + 1; j < n; j++)
         {
@@ -84,6 +84,7 @@ int* mydegtrf(double arr[], int array_size)
                 arr[j*n + k] = arr[j*n + k] - (arr[j*n+i] * arr[i*n + k]);
             }
         }
+        */
         
     }
 
@@ -201,14 +202,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
-/*
+
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }    
-*/
+
 /*  //swapping arrays 
 for(int i = 0; i < n; i++)
 {
