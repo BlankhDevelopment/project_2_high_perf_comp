@@ -15,7 +15,7 @@ using namespace std;
 
 int* mydegtrf(double arr[], int array_size)
 {
-    int block = 3;
+    int block = 10;
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
@@ -68,7 +68,7 @@ int* mydegtrf(double arr[], int array_size)
                     arr[j1*n + i] = arr[j1*n + i]/arr[i*n + i];
                     for(int k1 = k; k1 < k + block; k1++)
                     {
-                        arr[j1* n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
+                        arr[j1*n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
                     }
                 }
             }
@@ -106,7 +106,6 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
         }
         y[i] = arr2[pivot[i]] - sum;
     }
-
     return y;
 }
 
@@ -118,6 +117,9 @@ double* mydtrsmbwd(double arr[], double arr2[], int array_size)
     double *x;
     x = (double*)malloc(array_size* sizeof(double));
     x[n-1] = arr2[n-1] / arr[(n-1)*(n) + (n-1)]; //x(n) = y(n) / A(n,n)
+    /*
+
+    */
     for (int i = n-2; i >= 0; i--)
     {
         sum = 0.0;
@@ -173,7 +175,7 @@ int main (int argc, const char * argv[]) {
  B[0] = 1; B[1] = 6; B[2] = 4;
 // C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
 */
-
+/*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
 
@@ -184,9 +186,9 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
       printf("\n");                                                                                                                                                                   
   }                 
   cout << endl;
+*/
 
-
-cout << "Performing mydgetrf (LU factorization) with matrix size: " << n << endl;
+cout << "Performing blocked mydgetrf (LU factorization) with matrix size: " << n << endl;
 
 clock_t t;
 
@@ -198,14 +200,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
-
+/*
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }    
-
+*/
 /*  //swapping arrays 
 for(int i = 0; i < n; i++)
 {
@@ -214,14 +216,14 @@ for(int i = 0; i < n; i++)
     B[ipiv[i]] = temp;
 }
 */ 
-
+/*
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
 //ipiv[2] = 2;
-
+*/
 /*
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
