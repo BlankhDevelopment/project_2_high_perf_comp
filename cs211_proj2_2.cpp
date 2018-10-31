@@ -60,7 +60,7 @@ int* mydegtrf(double arr[], int array_size)
                 {
                     for(int i1 = i; i1 < i + block; i1++)
                     {
-                        for(int r1 = r; r < r + block; r1++)
+                        for(int r1 = r; r1 < r + block; r1++)
                         {
                             tempv[r1] = arr[i1*n+r1];
                             arr[i1*n + r1] = arr[maxind*n + r1];
