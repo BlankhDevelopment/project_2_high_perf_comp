@@ -15,7 +15,7 @@ using namespace std;
 
 int* mydegtrf(double arr[], int array_size)
 {
-    int block = 1;
+    int block = 10;
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
@@ -60,9 +60,9 @@ int* mydegtrf(double arr[], int array_size)
         }
         
        //blocked code
-        for (int j = i + 1; j < n; j += block + 1)
+        for (int j = i + 1; j < n; j += block)
         {
-            for (int k = i + 1; k < n; k += block + 1)
+            for (int k = i + 1; k < n; k += block)
             {
                 for(int j1 = j; j1 < j + block; j1++)
                 {
@@ -173,14 +173,14 @@ int main (int argc, const char * argv[]) {
   ipiv = (int*)malloc(m* sizeof(int));             
 
  // FillMatrix(A, B, n);     
-
+/*
   A[0] = 1; A[1] = 1; A[2] = 1; A[3] = 4;
   A[4] = 3; A[5] = -1; A[6] = 3; A[7] = 5;
   A[8] = 3; 
                                       
  B[0] = 1; B[1] = 6; B[2] = 4;
 // C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
-
+*/
 /*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
@@ -206,14 +206,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
-
+/*
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }    
-
+*/
 /*  //swapping arrays 
 for(int i = 0; i < n; i++)
 {
@@ -222,14 +222,14 @@ for(int i = 0; i < n; i++)
     B[ipiv[i]] = temp;
 }
 */ 
-
+/*
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
 //ipiv[2] = 2;
-
+*/
 /*
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
@@ -249,32 +249,31 @@ for (int i = 0; i < n; i++)
     
       t = clock();
      C = mydtrsmfwd(A, B, ipiv, n); //performing forward subsitution
-    cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
+  /*  cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << C[j];
           cout << endl;                                                       
-      }       
+      }     
+      */  
       C = mydtrsmbwd(A, C, n);  // performing backward substitution
 
       t = clock() - t;
 
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-
+/*
         cout << endl << "AFTER PERFORMING BACKWARDS SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << C[j];
           cout << endl;                                                       
       }                                                                                        
-                                                                                                                                                                     
+      */                                                                                                                                                               
    
 
 /*
-    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
 
-    
       t = clock() - t;
 
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
