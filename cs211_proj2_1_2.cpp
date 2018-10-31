@@ -155,7 +155,7 @@ int main (int argc, const char * argv[]) {
  B[0] = 1; B[1] = 6; B[2] = 4;
 // C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
 */
-
+/*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
 
@@ -166,7 +166,7 @@ cout << endl << "OUTPUTTING MATRIX A: " << endl;
       printf("\n");                                                                                                                                                                   
   }                 
   cout << endl;
-
+*/
 
 cout << "Performing mydgetrf (LU factorization) with matrix size: " << n << endl;
 
@@ -180,14 +180,14 @@ cout << "This process took: " << (double(t) / CLOCKS_PER_SEC) << " seconds" << e
 
 
 //outputs matrix A
-
+/*
  for (int i = 0; i < m; i++) {                                                                
       for (int j = 0; j < n; j++){                                                             
           printf("  %lf ", A[lda*j+i]);                                                        
       }                                                                                        
       printf("\n");                                                                                                                                                                   
   }    
-
+*/
 /*  //swapping arrays 
 for(int i = 0; i < n; i++)
 {
