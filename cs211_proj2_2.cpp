@@ -163,18 +163,18 @@ int main (int argc, const char * argv[]) {
   
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
-  C = (double*)malloc((m*n) * sizeof(double));
+  C = (double*)malloc(m * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
  // FillMatrix(A, B, n);     
-/*
+
   A[0] = 1; A[1] = 1; A[2] = 1; A[3] = 4;
   A[4] = 3; A[5] = -1; A[6] = 3; A[7] = 5;
   A[8] = 3; 
                                       
  B[0] = 1; B[1] = 6; B[2] = 4;
 // C[0] = 6; C[1] = -0.5; C[2] = -0.454545;
-*/
+
 /*
 cout << endl << "OUTPUTTING MATRIX A: " << endl; 
 
