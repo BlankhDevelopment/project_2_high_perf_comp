@@ -31,9 +31,9 @@ int* mydegtrf(double arr[], int array_size)
         double max = fabs(arr[i*n + i]); //this will be the same as A(i,i)
         for (int t = i + 1; t < n; t += block)
         {
-            for (int i1 = i; i1 < i + block; i1++)
+            for (int i1 = i; i1 < i + block-1; i1++)
             {
-                for (int t1 = t; t1 < t + block; t1++)
+                for (int t1 = t; t1 < t + block-1; t1++)
                 {
                     if(fabs(arr[t1*n + i1])>max)
                     {
@@ -58,9 +58,9 @@ int* mydegtrf(double arr[], int array_size)
                 // tempv = A(i,:);
                 for(int r = 0; r < array_size; r+=block)
                 {
-                    for(int i1 = i; i1 < i + block; i1++)
+                    for(int i1 = i; i1 < i + block-1; i1++)
                     {
-                        for(int r1 = r; r1 < r + block; r1++)
+                        for(int r1 = r; r1 < r + block-1; r1++)
                         {
                             tempv[r1] = arr[i1*n+r1];
                             arr[i1*n + r1] = arr[maxind*n + r1];
@@ -76,12 +76,12 @@ int* mydegtrf(double arr[], int array_size)
         {
             for (int k = i + 1; k < n; k += block)
             {
-                for(int i1 = i; i1 < i + block; i1++)
+                for(int i1 = i; i1 < i + block-1; i1++)
                 {
-                    for(int j1 = j; j1 < j + block; j1++)
+                    for(int j1 = j; j1 < j + block-1; j1++)
                     {
                         arr[j1*n + i] = arr[j1*n + i]/arr[i*n + i];
-                        for(int k1 = k; k1 < k + block; k1++)
+                        for(int k1 = k; k1 < k + block-1; k1++)
                         {
                             arr[j1*n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
                         }
