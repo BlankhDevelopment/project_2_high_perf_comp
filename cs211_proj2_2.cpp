@@ -15,7 +15,7 @@ using namespace std;
 
 int* mydegtrf(double arr[], int array_size)
 {
-    int block = 3;
+    int block = 1;
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
@@ -59,9 +59,9 @@ int* mydegtrf(double arr[], int array_size)
             }
         }
        //blocked code
-        for (int j = i + block; j < n; j += block)
+        for (int j = i + 1; j < n; j += block)
         {
-            for (int k = i + block; k < n; k += block)
+            for (int k = i + 1; k < n; k += block)
             {
                 for(int j1 = j + 1; j1 < j + block; j1++)
                 {
