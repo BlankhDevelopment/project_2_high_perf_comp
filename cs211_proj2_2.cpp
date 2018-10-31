@@ -19,7 +19,7 @@ int* mydegtrf(double arr[], int array_size)
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
-    for(int i = 0; i < array_size; i++)
+    for(int i = 0; i < array_size; i += block)
     {
         pvt[i] = i;
     }
@@ -64,12 +64,15 @@ int* mydegtrf(double arr[], int array_size)
         {
             for (int k = i + 1; k < n; k += block)
             {
-                for(int j1 = j; j1 < j + block; j1++)
+                for(int i1 = i; i1 < i + block; i1++)
                 {
-                    arr[j1*n + i] = arr[j1*n + i]/arr[i*n + i];
-                    for(int k1 = k; k1 < k + block; k1++)
+                    for(int j1 = j; j1 < j + block; j1++)
                     {
-                        arr[j1*n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
+                        arr[j1*n + i] = arr[j1*n + i]/arr[i*n + i];
+                        for(int k1 = k; k1 < k + block; k1++)
+                        {
+                            arr[j1*n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
+                        }
                     }
                 }
             }
