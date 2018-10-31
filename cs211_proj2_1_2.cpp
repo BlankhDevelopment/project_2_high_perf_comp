@@ -196,14 +196,14 @@ for(int i = 0; i < n; i++)
     B[ipiv[i]] = temp;
 }
 */ 
-
+/*
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
 //ipiv[2] = 2;
-
+*/
 /*
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
@@ -223,44 +223,30 @@ for (int i = 0; i < n; i++)
     
       t = clock();
      C = mydtrsmfwd(A, B, ipiv, n); //performing forward subsitution
+    
+    /*
     cout << endl << "AFTER PERFORMING FORWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << C[j];
           cout << endl;                                                       
       }       
+      */
       C = mydtrsmbwd(A, C, n);  // performing backward substitution
 
       t = clock() - t;
 
       cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
 
-
+    /*
         cout << endl << "AFTER PERFORMING BACKWARDS SUBSTITUTION ON MATRIX B, WE GET: " << endl;                                                           
       for (int j = 0; j < n; j++)
       {                                                             
           cout << C[j];
           cout << endl;                                                       
       }                                                                                        
-                                                                                                                                                                     
-   
+      */                                                                                                                                                               
 
-/*
-    cblas_dtrsm(CblasColMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, 1, 1.0, A, lda, B, ldb);     
-
-    
-      t = clock() - t;
-
-      cout << "This process took: "  << (double(t) / CLOCKS_PER_SEC) << " seconds" << endl;
-
-    /* cout << endl << "AFTER PERFORMING BACKWARD SUBSTITUTION ON MATRIX B, WE GET: " << endl;
-                                                            
-      for (int j = 0; j < n; j++)
-      {                                                             
-          cout << B[j];                                                      
-          cout << endl;
-      }                                                                                   
-      */
 
   return 0;
 }
