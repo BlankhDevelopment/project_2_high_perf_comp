@@ -61,7 +61,7 @@ int* mydegtrf(double arr[], int array_size)
         //blocked code
         for (int j = i + 1; j < n; j += block)
         {
-            for (int k = i + 1; k < n; k+= block)
+            for (int k = i + 1; k < n; k += block)
             {
                 for(int j1 = j; j1 < j + block; j1++)
                 {
@@ -163,10 +163,10 @@ int main (int argc, const char * argv[]) {
   
   A = (double*)malloc(m*n * sizeof(double));
   B = (double*)malloc(m * sizeof(double));
-  C = (double*)malloc((m*n+10) * sizeof(double));
+  C = (double*)malloc((m*n) * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
-  FillMatrix(A, B, n);     
+ // FillMatrix(A, B, n);     
 /*
   A[0] = 1; A[1] = 1; A[2] = 1; A[3] = 4;
   A[4] = 3; A[5] = -1; A[6] = 3; A[7] = 5;
