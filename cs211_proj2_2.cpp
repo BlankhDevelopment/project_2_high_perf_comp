@@ -80,6 +80,7 @@ int* mydegtrf(double arr[], int array_size)
                 {
                     for(int j1 = j; j1 < j + block; j1++)
                     {
+
                         arr[j1*n + i1] = arr[j1*n + i1]/arr[i1*n + i1];
                         for(int k1 = k; k1 < k + block; k1++)
                         {
@@ -113,11 +114,8 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     double sum = 0.0;
     int n = array_size;
     double *y;
-    cout << "IM HERE BOY" << endl;
     y = (double*)malloc(array_size* sizeof(double));
-    cout << "IM HERE BOY" << endl;
     y[0] = arr2[pivot[0]];
-    cout << "IM HERE BOY" << endl;
     for (int i = 1; i < n; i++)
     {
         sum = 0.0;
