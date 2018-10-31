@@ -221,14 +221,14 @@ for(int i = 0; i < n; i++)
     B[ipiv[i]] = temp;
 }
 */ 
-/*
+
 cout << "PIVOT ARRAY: " << endl;
 for (int i = 0; i < n; i++)
 {
     cout << ipiv[i] << endl;
 }
 //ipiv[2] = 2;
-*/
+
 /*
 
   cout << endl << "AFTER PERFORMING LU FACTORIZATION ON MATRIX A, WE GET: " << endl;                                                                 
