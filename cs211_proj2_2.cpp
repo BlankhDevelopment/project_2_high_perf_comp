@@ -175,7 +175,7 @@ int main (int argc, const char * argv[]) {
   C = (double*)malloc(m * sizeof(double));
   ipiv = (int*)malloc(m* sizeof(int));             
 
- // FillMatrix(A, B, n);     
+  FillMatrix(A, B, n);     
 /*
   A[0] = 1; A[1] = 1; A[2] = 1; A[3] = 4;
   A[4] = 3; A[5] = -1; A[6] = 3; A[7] = 5;
