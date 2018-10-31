@@ -6,5 +6,5 @@
 #SBATCH -t 00:59:00
 
 export OPENBLAS_NUM_THREADS=1
-./cs211_proj2_2 4991
+./cs211_proj2_2 1001
 
