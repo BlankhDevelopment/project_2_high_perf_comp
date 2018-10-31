@@ -6,5 +6,9 @@
 #SBATCH -t 00:59:00
 
 export OPENBLAS_NUM_THREADS=1
-./cs211_proj2_2 33
-./cs211_proj2_1_2 33
+./cs211_proj2_2 1000
+./cs211_proj2_2 2000
+./cs211_proj2_2 3000
+./cs211_proj2_2 4000
+./cs211_proj2_2 5000
+
