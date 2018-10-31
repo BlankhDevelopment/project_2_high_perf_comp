@@ -99,6 +99,7 @@ double* mydtrsmfwd(double arr[], double arr2[], int pivot[], int array_size)
     double *y;
     cout << "IM HERE BOY" << endl;
     y = (double*)malloc(array_size* sizeof(double));
+    cout << "IM HERE BOY" << endl;
     y[0] = arr2[pivot[0]];
     cout << "IM HERE BOY" << endl;
     for (int i = 1; i < n; i++)
