@@ -58,6 +58,7 @@ int* mydegtrf(double arr[], int array_size)
                 }
             }
         }
+        /*
        //blocked code
         for (int j = i + 1; j < n; j += block + 1)
         {
@@ -73,8 +74,8 @@ int* mydegtrf(double arr[], int array_size)
                 }
             }
         }
+        */
         
-        /*
         //factorization
         for(int j = i + 1; j < n; j++)
         {
@@ -84,7 +85,7 @@ int* mydegtrf(double arr[], int array_size)
                 arr[j*n + k] = arr[j*n + k] - (arr[j*n+i] * arr[i*n + k]);
             }
         }
-        */
+        
         
     }
 
