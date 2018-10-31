@@ -19,13 +19,13 @@ int* mydegtrf(double arr[], int array_size)
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
-    for(int i = 0; i < array_size; i += block)
+    for(int i = 0; i < array_size; i++)
     {
         pvt[i] = i;
     }
     double *tempv;
     tempv = (double*)malloc(array_size* sizeof(double)); 
-    for(int i = 0; i < n-1; i++) //for 1-->(n-1)
+    for(int i = 0; i < n-1; i+=block) //for 1-->(n-1)
     {
         int maxind = i;
         double max = fabs(arr[i*n + i]); //this will be the same as A(i,i)
