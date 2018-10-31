@@ -86,8 +86,8 @@ int* mydegtrf(double arr[], int array_size)
                         register double r1 = arr[j1*n + i1];
                         for(int k1 = k; k1 < k + block; k1++)
                         {
-                            register double r4 = j1*n + k1;
-                            register double r5 = i1*n + k1;
+                            register int r4 = j1*n + k1;
+                            register int r5 = i1*n + k1;
                             register double r6 = r1 * arr[r5];
                             register double r7 = arr[r4];
                             arr[r4] = r7 - r6;
