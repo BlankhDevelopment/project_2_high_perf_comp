@@ -15,7 +15,7 @@ using namespace std;
 
 int* mydegtrf(double arr[], int array_size)
 {
-    int block = 3;
+    int block = 10;
     int n = array_size;
     int *pvt;
     pvt = (int*)malloc((array_size*array_size) * sizeof(int));  
@@ -37,8 +37,8 @@ int* mydegtrf(double arr[], int array_size)
                 {
                     if(fabs(arr[t1*n + i1])>max)
                     {
-                        maxind = t; 
-                        max = fabs(arr[t*n+i1]);
+                        maxind = t1; 
+                        max = fabs(arr[t1*n+i1]);
                     }
                 }
             }
