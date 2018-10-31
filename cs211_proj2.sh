@@ -8,4 +8,5 @@
 export OPENBLAS_NUM_THREADS=1
 ./cs211_proj2_2 1001
 ./cs211_proj2_2 2001
+./cs211_proj2_2 4001
 ./cs211_proj2_2 5001
