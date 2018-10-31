@@ -29,12 +29,18 @@ int* mydegtrf(double arr[], int array_size)
     {
         int maxind = i;
         double max = fabs(arr[i*n + i]); //this will be the same as A(i,i)
-        for (int t = i + 1; t < n; t++)
+        for (int t = i + 1; t < n; t += block)
         {
-            if(fabs(arr[t*n + i])>max)
+            for (int i1 = i; i1 < i + block; i1++)
             {
-                maxind = t; 
-                max = fabs(arr[t*n+i]);
+                for (int t1 = t; t1 < t + block; t1++)
+                {
+                    if(fabs(arr[t1*n + i1])>max)
+                    {
+                        maxind = t; 
+                        max = fabs(arr[t*n+i1]);
+                    }
+                }
             }
         }
         if (max == 0)
@@ -50,11 +56,17 @@ int* mydegtrf(double arr[], int array_size)
                 pvt[maxind] = temps;
                 //swap rows
                 // tempv = A(i,:);
-                for(int r = 0; r < array_size; ++r)
+                for(int r = 0; r < array_size; r+=block)
                 {
-                    tempv[r] = arr[i*n+r];
-                    arr[i*n + r] = arr[maxind*n + r];
-                    arr[maxind*n + r] = tempv[r];
+                    for(int i1 = i; i1 < i + block; i1++)
+                    {
+                        for(int r1 = r; r < r + block; r1++)
+                        {
+                            tempv[r1] = arr[i1*n+r1];
+                            arr[i1*n + r1] = arr[maxind*n + r1];
+                            arr[maxind*n + r1] = tempv[r1];
+                        }
+                    }
                 }
             }
         }
