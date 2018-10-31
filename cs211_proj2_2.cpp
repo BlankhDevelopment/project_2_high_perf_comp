@@ -58,24 +58,24 @@ int* mydegtrf(double arr[], int array_size)
                 }
             }
         }
-        /*
+        
        //blocked code
         for (int j = i + 1; j < n; j += block + 1)
         {
             for (int k = i + 1; k < n; k += block + 1)
             {
-                for(int j1 = j; j1 < j + block + 1; j1++)
+                for(int j1 = j; j1 < j + block; j1++)
                 {
                     arr[j1*n + i] = arr[j1*n + i]/arr[i*n + i];
-                    for(int k1 = k; k1 < k + block + 1; k1++)
+                    for(int k1 = k; k1 < k + block; k1++)
                     {
                         arr[j1*n + k1] = arr[j1*n + k1] - (arr[j1*n+i] * arr[i*n + k1]);
                     }
                 }
             }
         }
-        */
         
+        /*
         //factorization
         for(int j = i + 1; j < n; j++)
         {
@@ -85,7 +85,7 @@ int* mydegtrf(double arr[], int array_size)
                 arr[j*n + k] = arr[j*n + k] - (arr[j*n+i] * arr[i*n + k]);
             }
         }
-        
+        */
         
     }
 
